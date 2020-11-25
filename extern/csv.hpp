@@ -6544,7 +6544,7 @@ namespace csv {
             csv::enable_if_t<std::is_floating_point<T>::value, int> = 0
         >
         inline std::string to_string(T value) {
-            std::string result;
+            /*std::string result;
 
             if (value < 0) result = "-";
             
@@ -6558,7 +6558,10 @@ namespace csv {
             result += ".";
             result += (decimal == 0) ? "0" : to_string(integral);
 
-            return result;
+            return result;*/
+            auto ss = std::stringstream();
+	        ss << value;
+	        return ss.str();
         }
     }
 
